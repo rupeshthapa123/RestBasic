@@ -2,6 +2,11 @@ from rest_framework import serializers
 from .models import Article
 
 class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Article
+        # fields = ['id','title','author','email']
+        fields ='__all__'
+
     # title = serializers.CharField(max_length=100)
     # author = serializers.CharField(max_length=100)
     # email = serializers.EmailField(max_length=100)
@@ -17,8 +22,3 @@ class ArticleSerializer(serializers.ModelSerializer):
     #     instance.date = validated_data.get('date', instance.date)
     #     instance.save()
     #     return instance
-    class Meta:
-        Model = Article
-        fields = ['id','title','author',]
-
-    
